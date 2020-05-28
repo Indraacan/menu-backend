@@ -11,7 +11,7 @@ require ("dotenv").config();
 var indexRouter = require("./routes/index");
 const menuRouter = require("./routes/Menu");
 const usersRouter = require("./routes/users");
-
+const categoryRouter = require ("./routes/Category")
 var app = express();
 mongodConnect = process.env.DB_LOCAL
 mongoose.connect(mongodConnect, {
@@ -35,5 +35,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/menu", menuRouter);
+app.use("/category", categoryRouter)
 
 module.exports = app;
